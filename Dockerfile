@@ -3,6 +3,12 @@
 # Use an official Ruby runtime as the base image
 FROM ruby:3.2.2
 
+# Update the repositories list
+RUN apt-get update
+
+# Install Node.js and npm
+RUN apt-get install -y nodejs npm
+
 # Set working directory inside the container
 WORKDIR /usr/src/blog
 
