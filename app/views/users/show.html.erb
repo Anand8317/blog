@@ -12,4 +12,6 @@
     <a href="<%= user_posts_path(@user) %>">
         <button class="see-all-post-btn">See all posts</button>
     </a>
+    <button type="button" class="post-button"><%= link_to "Post", new_user_post_path( user_id: @user.id), { class: "user-link" } %></button>
+
 </div>

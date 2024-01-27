@@ -5,4 +5,10 @@
             <p class="post-comment"><%= @user.name %>: <%= comment.text %></p>
         <%end%>
     </div>
-</div>
+
+    <h2>Add a comment</h2>
+    <button type="button" class="comment-button"><%= link_to "Comment", new_user_post_comment_path( post_id: @post.id), { class: "user-link" } %></button>
+    <%= form_with model: @like, url: user_post_likes_path(1, @post), scope: :like do |form|%>
+        <%= form.submit 'Like post', class: 'like-button' %>
+     <% end %>
+ </div>
