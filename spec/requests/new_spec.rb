@@ -1,11 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe "News", type: :request do
-  describe "GET /create" do
-    it "returns http success" do
-      get "/new/create"
+RSpec.describe 'News', type: :request do
+  describe 'GET /create' do
+    it 'returns http success' do
+      get '/new/create'
       expect(response).to have_http_status(:success)
     end
   end
-
 end
