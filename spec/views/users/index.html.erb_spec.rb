@@ -29,4 +29,3 @@ RSpec.describe 'User Index Page', type: :feature do
     expect(page).to have_current_path(user_path(user))
   end
 end
-

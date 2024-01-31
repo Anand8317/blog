@@ -34,7 +34,7 @@ RSpec.describe 'User Show Page', type: :feature do
   end
 
   it 'redirects to post show page when a post is clicked' do
-    post = user.posts.create!(title: "Database", text: "Test Database")
+    post = user.posts.create!(title: 'Database', text: 'Test Database')
     visit user_path(user)
     click_on post.title
     expect(page).to have_current_path(user_post_path(user_id: user.id, id: post.id))
