@@ -20,7 +20,7 @@ RSpec.describe 'Posts', type: :request do
       end
 
       it 'shows that template includes correct placeholder text' do
-        expect(response.body).to include('All the posts by specific user')
+        expect(response.body).to include('Number of posts:')
       end
     end
 
@@ -42,7 +42,7 @@ RSpec.describe 'Posts', type: :request do
       end
 
       it 'shows that template includes correct placeholder text' do
-        expect(response.body).to include('Specific post by specific user')
+        expect(response.body).to include('Comments:')
       end
     end
   end

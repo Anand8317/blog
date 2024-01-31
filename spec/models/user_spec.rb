@@ -21,7 +21,7 @@ RSpec.describe User, type: :model do
     it 'should return an array of length 3' do
       4.times { Post.create(author: @user, title: 'Hello', text: 'This is my first post') }
       result = @user.recent_posts
-      expect(result.length).to be 0
+      expect(result.length).to be 3
     end
   end
 end

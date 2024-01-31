@@ -16,7 +16,7 @@ RSpec.describe 'Users', type: :request do
       end
 
       it 'shows that template includes correct placeholder text' do
-        expect(response.body).to include('List of all users')
+        expect(response.body).to include('Number of posts:')
       end
     end
 
@@ -36,7 +36,7 @@ RSpec.describe 'Users', type: :request do
       end
 
       it 'shows that template includes correct placeholder text' do
-        expect(response.body).to include('Specific User')
+        expect(response.body).to include('Bio')
       end
     end
   end
