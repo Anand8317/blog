@@ -1,10 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'User Index Page', type: :feature do
-  before do
-    # Create some users here
-  end
-
   it 'displays usernames of all users' do
     visit users_path
     User.all.each do |user|
