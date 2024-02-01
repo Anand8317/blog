@@ -2,7 +2,17 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
+
+  # Allow unconfirmed access for 7 days.
+  # You can also set this to an integer specifying the number of days.
+  # Or set this to false to require confirmation immediately.
+  # Default is 0.days, meaning the user cannot access the website without confirming their email.
+  Devise.setup do |config|
+    config.allow_unconfirmed_access_for = 7.days
+    config.reconfirmable = true
+  end
+
   has_many :posts, foreign_key: 'author_id'
   has_many :comments
   has_many :likes
