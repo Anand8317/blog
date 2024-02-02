@@ -14,11 +14,9 @@ class Ability
       can :create, Comment
 
       can :read, Comment
-      can :create, Comment do |comment|
-        user.persisted? 
+      can :create, Comment do |_comment|
+        user.persisted?
       end
     end
-
-    
   end
 end
