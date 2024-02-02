@@ -1,0 +1,11 @@
+<%= form_with(url: "/users/#{@user.id}/posts/#{@post.id}/comments", local: true, data: { turbo: false }) do |form| %>
+
+  <div class="field">
+    <%= form.label :text %>
+    <%= form.text_area :text, name: 'comment[text]' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
