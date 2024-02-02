@@ -3,11 +3,21 @@
     <div class="list-of-comments">
         <% @post.comments.each do |comment| %>
             <p class="post-comment"><%= @user.name %>: <%= comment.text %></p>
+            <% if can? :destroy, comment %>
+                <%= link_to 'Delete comment', [@user, @post, comment], data: { "turbo-method": :delete } %>
+            <% end %>
         <%end%>
     </div>
 
-    <h2>Add a comment</h2>
-    <button type="button" class="comment-button"><%= link_to "Comment", new_user_post_comment_path( post_id: @post.id), { class: "user-link" } %></button>
+    <% if can? :destroy, @post %>
+        <%= link_to 'Delete post', user_post_path(@user, @post), data: { "turbo-method": :delete }%>
+    <% end %>
+
+    <% if user_signed_in? %>
+        <p>Add a comment</p>
+        <button type="button" class="comment-button"><%= link_to "Comment", new_user_post_comment_path( post_id: @post.id), { class: "user-link" } %></button>
+    <% end %>
+    
     <%= form_with model: @like, url: user_post_likes_path(1, @post), scope: :like do |form|%>
         <%= form.submit 'Like post', class: 'like-button' %>
      <% end %>

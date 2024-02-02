@@ -12,6 +12,9 @@
     <a href="<%= user_posts_path(@user) %>" id="See">
         See all posts
     </a>
-    <button type="button" class="post-button"><%= link_to "Post", new_user_post_path( user_id: @user.id), { class: "user-link" } %></button>
+
+    <% if user_signed_in? && current_user.id == @user.id %>
+        <button type="button" class="post-button"><%= link_to "Post", new_user_post_path( user_id: @user.id), { class: "user-link" } %></button>
+    <% end %>
 
 </div>
