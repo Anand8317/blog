@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  #load_and_authorize_resource
   before_action :set_user
 
   def index
@@ -29,7 +30,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    logger.debug('Debug message')
     @post = Post.find(params[:id])
     authorize! :destroy, @post
     @post.destroy
