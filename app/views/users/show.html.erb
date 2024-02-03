@@ -1,2 +1,20 @@
-<h1>Specific User</h1>
+<div class="user-post-main-container">
+    <%= render partial: 'users/user', locals: { user: @user } %>
+    <div class="user-bio-container">
+        <h4 class="user-post-bio">Bio</h4>
+        <p class="user-post-bio-para"><%= @user.bio %></p>
+    </div>
+    <div class="list-of-posts">
+        <% @user.recent_posts.each do |post| %>
+            <%= render partial: 'posts/post', locals: { post: post } %>
+        <% end %>
+    </div>
+    <a href="<%= user_posts_path(@user) %>" id="See">
+        See all posts
+    </a>
 
+    <% if user_signed_in? && current_user.id == @user.id %>
+        <button type="button" class="post-button"><%= link_to "Post", new_user_post_path( user_id: @user.id), { class: "user-link" } %></button>
+    <% end %>
+
+</div>

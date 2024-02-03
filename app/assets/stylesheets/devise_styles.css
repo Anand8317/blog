@@ -1,0 +1,111 @@
+/* Style the heading */
+h2 {
+  text-align: center;
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Style the form fields */
+.field {
+  margin: 0 auto;
+  margin-bottom: 15px;
+  width: 40%;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 5px;
+  color: #666;
+}
+
+.field input[type="email"],
+.field input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box; /* Include padding and border in the element's width and height */
+}
+
+/* Style the checkbox for 'remember me' */
+.field input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+/* Style the form actions */
+.actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.actions input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.actions input[type="submit"]:hover {
+  background-color: #4cae4c;
+}
+
+/* Style the links below the form */
+.devise-links {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.devise-links a {
+  color: #337ab7;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+/* Style the container for the shared links */
+.devise-shared-links {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Style the links */
+.devise-shared-links a {
+  display: inline-block;
+  margin: 0 10px;
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+/* Change background color on hover */
+.devise-shared-links a:hover {
+  background-color: #0056b3;
+}
+
+.devise-links a:hover {
+  text-decoration: underline;
+}
+
+/* Style for the 'Sign in with' buttons */
+.devise-shared-links form button {
+  display: inline-block;
+  margin: 5px;
+  padding: 8px 12px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Change background color on hover for buttons */
+.devise-shared-links form button:hover {
+  background-color: #218838;
+}

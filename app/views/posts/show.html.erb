@@ -1,2 +1,24 @@
-<h1>Specific post by specific user</h1>
+<div class="all-comments-container">
+    <%= render partial: 'posts/post', locals: { post: @post } %>
+    <div class="list-of-comments">
+        <% @post.comments.each do |comment| %>
+            <p class="post-comment"><%= comment.user.name %>: <%= comment.text %></p>
+            <% if can? :destroy, comment %>
+                <%= link_to 'Delete comment', [@user, @post, comment], data: { "turbo-method": :delete } %>
+            <% end %>
+        <%end%>
+    </div>
 
+    <% if can? :destroy, @post %>
+        <%= link_to 'Delete post', user_post_path(@user, @post), data: { "turbo-method": :delete }%>
+    <% end %>
+
+    <% if user_signed_in? %>
+        <p>Add a comment</p>
+        <%= render 'comments/form', post: @post, user: current_user %>
+    <% end %>
+    
+    <%= form_with model: @like, url: user_post_likes_path(1, @post), scope: :like do |form|%>
+        <%= form.submit 'Like post', class: 'like-button' %>
+     <% end %>
+ </div>
