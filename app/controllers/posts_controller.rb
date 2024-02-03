@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = @user.posts.includes(comments: :user)
+    render json: @posts
   end
 
   def show

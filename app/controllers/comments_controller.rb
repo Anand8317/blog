@@ -1,4 +1,10 @@
 class CommentsController < ApplicationController
+
+  def index
+    post = Post.find(params[:post_id])
+    render json: post.comments
+  end
+
   def create
     @user = current_user
     @post = Post.find(params[:post_id])
@@ -7,9 +13,11 @@ class CommentsController < ApplicationController
 
     if @comment.save
       flash[:notice] = 'The comment is successfully submitted'
-      redirect_to user_post_path(@post.author, @post)
+      render json: @comment, status: :created
+      #redirect_to user_post_path(@post.author, @post)
     else
-      render 'posts/show'
+      render json: @comment.errors, status: :unprocessable_entity
+      #render 'posts/show'
     end
   end
 
