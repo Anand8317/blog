@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-
   def index
     post = Post.find(params[:post_id])
     render json: post.comments
@@ -14,10 +13,10 @@ class CommentsController < ApplicationController
     if @comment.save
       flash[:notice] = 'The comment is successfully submitted'
       render json: @comment, status: :created
-      #redirect_to user_post_path(@post.author, @post)
+      # redirect_to user_post_path(@post.author, @post)
     else
       render json: @comment.errors, status: :unprocessable_entity
-      #render 'posts/show'
+      # render 'posts/show'
     end
   end
 
